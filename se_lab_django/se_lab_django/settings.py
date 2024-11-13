@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'se_lab_app'
 ]
 
 MIDDLEWARE = [
@@ -75,10 +76,16 @@ WSGI_APPLICATION = 'se_lab_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'se-lab-db', # change to your database name
+    'USER': 'user1', # change to your user name
+    'PASSWORD': '123456', # change to your user password
+    'HOST': 'localhost',
+    'PORT': '5432', # change only if you changed the default port
     }
 }
+
+
 
 
 # Password validation
