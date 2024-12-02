@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Create product</title></head>
+<body>
+<h1>Add new product</h1>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Product name" required><br>
+    <input type="number" step="0.01" name="price" placeholder="Price" required><br>
+    <label for="available">
+        <input type="checkbox" name="available" id="is_available">
+        Is available?
+    </label><br>
+    <button type="submit">Create product</button>
+</form>
+</body>
+</html>
