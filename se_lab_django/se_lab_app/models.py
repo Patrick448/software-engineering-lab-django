@@ -38,14 +38,14 @@ class Order(models.Model):
 
     def get_total_price(self):
         sum = 0
-        for product in self.products.related_model.all():
+        for product in self.products.all():
             sum += product.price
 
         return sum
 
     def check_order_possible(self):
         possible = True
-        for product in self.products.related_model.all():
+        for product in self.products.all():
             if not product.available:
                 possible = False
                 break
