@@ -29,8 +29,7 @@ jobs:
       # modiify the paths if necessary
       - name: Commit and push documentation
         run: |
-          git config --global user.mail
-          "github-actions[bot]@users.noreply.github.com"
+          git config --global user.mail "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           git add docs.json index.html
           git commit -m "Updated documentation"
