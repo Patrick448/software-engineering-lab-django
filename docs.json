@@ -7,7 +7,13 @@ paths:
     get:
       operationId: listProducts
       description: ''
-      parameters: []
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
       responses:
         '200':
           content:
@@ -54,6 +60,12 @@ paths:
         description: A unique integer value identifying this product.
         schema:
           type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
       responses:
         '200':
           content:
@@ -71,6 +83,12 @@ paths:
         in: path
         required: true
         description: A unique integer value identifying this product.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
         schema:
           type: string
       requestBody:
@@ -103,6 +121,12 @@ paths:
         description: A unique integer value identifying this product.
         schema:
           type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -131,6 +155,12 @@ paths:
         in: path
         required: true
         description: A unique integer value identifying this product.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
         schema:
           type: string
       responses:
