@@ -1,0 +1,39 @@
+name: software-engineering-lab-9
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.12 # change to your Python version
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+      # make sure your requirements file is up to date
+      - name: Generate API documentation
+        run: |
+          source venv/bin/activate
+          python se_lab_django/manage.py generateschema > docs.json
+      # modiify the paths if necessary
+      - name: Commit and push documentation
+        run: |
+          git config --global user.mail
+          "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add docs.json index.html # modify the paths if necessary
+          git commit -m "Updated documentation"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
