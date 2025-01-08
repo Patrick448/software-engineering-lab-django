@@ -32,7 +32,7 @@ jobs:
           git config --global user.mail
           "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git add docs.json index.html # modify the paths if necessary
+          git add docs.json index.html
           git commit -m "Updated documentation"
           git push origin main
         env:
